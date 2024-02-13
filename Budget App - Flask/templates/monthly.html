@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Monthly
+{% endblock %}
+
+{% block main %}
+    <h3 id="head">Monthly Progress</h3>    
+
+    <div class="container">
+        <form action="/monthly" method="post">
+            <div class="row">
+                <div class="col-25">
+                    <lable id="trans-label" for="month">Select a Month</lable>
+                </div>
+                <div class="col-75">
+                    <input id="trans-input" type="month" name="month"
+                        min="2022-01" value="2022-07">
+                </div>
+            </div>
+            <div class="row">
+                <div class="center">
+                    <button id="trans-button" type="submit" class="btn btn-primary">Go</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

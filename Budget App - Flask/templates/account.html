@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Account
+{% endblock %}
+
+{% block main %}
+
+    <h3 id="head">Create an Account</h3>
+
+    <div class="container">
+        <form action="/account" method="post">
+            <div class="row">
+                <div class="col-25">
+                    <label id="trans-label" for="username">Username</label>
+                </div>
+                <div class="col-75">
+                    <input id="trans-input" type="text" name="username" autocomplete="off">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label id="trans-label" for="password">Password</label>
+                </div>
+                <div class="col-75">
+                    <input id="trans-select" type="password" name="password">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label id="trans-label" for="confirmation">Confirm Password</label>
+                </div>
+                <div class="col-75">
+                    <input id="trans-select" type="password" name="confirmation">
+                </div>
+            </div>
+            <div class="row">
+                <div class="center">
+                    <button id="trans-button" type="submit" class="btn btn-primary">Create</button>
+                </div>
+            </div>     
+        </form>
+    </div>
+{% endblock %}

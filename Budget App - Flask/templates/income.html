@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Income
+{% endblock %}
+
+{% block main %}
+
+    <h3 id="head">Add an Income</h3>
+
+    <div class="container">
+        <form action="/income" method="post">
+            <div class="row">
+                <div class="col-25">
+                    <label id="trans-label" for="date">Month</label>
+                </div>
+                <div class="col-75">
+                    <input id="trans-select" type="month" name="date"
+                        min="2022-01" value="2022-01">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label id="trans-label" for="amount">Amount</label>
+                </div>
+                <div class="col-75">
+                    <input id="trans-input" type="text" name="amount" placeholder="Amount" autocomplete="off">
+                </div>
+            </div>
+            <div class="row">
+                <div class="center">
+                    <button id="trans-button" type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

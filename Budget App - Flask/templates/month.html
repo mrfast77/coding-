@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Monthly
+{% endblock %}
+
+{% block main %}
+    <h3 id="head">Progress for {{ date }}</h2>
+    {% set data = t_data|list %}
+    <div class="m-container">
+    <h4>Budget Tracker</h4>
+    {% for b in b_data %}
+        <p class="bill">{{ b.bill }} 
+            <div class="progress">
+                {% for t in data  %}
+                    {% if b.bill == t.category %}
+                    {% set b_percent = (t.amount / b.amount) * 100 %}
+                    <div class="progress-bar" role="progressbar" style="width: {{ b_percent }}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">{{ "$%.2f"|format(b.amount - t.amount) }} remaining</div>
+                    {% else %}
+                    <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </p>
+    {% endfor %}
+    {% for b in bill_sum %}
+        <p class="total"><b>Total Spending Remaining</b>
+            <div class="progress">
+                {% for s in sum %}
+                    {% set percent = (s.sum / b.amount) * 100 %}
+                    <div class="progress-bar" role="progressbar" style="width: {{ percent }}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">{{ "$%.2f"|format(b.amount - s.sum) }} remaining</div>
+            </div>
+        </p>
+        <br>
+    </div>
+    <div class="container-2">
+        <h4>Summary</h4>
+        <p>Total Spent This Month: {{ "$%.2f"|format(s.sum) }}</p>
+            {% if income == 0 %}
+                <p>Total Income This Month: $0.00</p>
+                {% set net = 0 - s.sum %}
+                <p>Net Gain: {{ "$%.2f"|format(net) }}</p>
+            {% else %}
+                {% for i in income %}
+                <p>Total Income This Month: {{ "$%.2f"|format(i.amount) }}</p>
+                {% set net = i.amount - s.sum %}
+                <p>Net Gain: {{ "$%.2f"|format(net) }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+    </div>
+{% endblock %}

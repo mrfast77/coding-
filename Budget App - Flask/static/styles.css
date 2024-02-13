@@ -1,0 +1,160 @@
+/* Home Page */
+.home_buttons {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+ 
+}
+
+.left_button {
+    padding-left: 20px;
+
+}
+
+.right_button {
+    padding-right: 20px;
+}
+
+input {
+    margin-left: 20px;
+    margin-right: 20px
+}
+
+#head {
+    padding-top: 20px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+#table {
+    width: 95%; 
+    margin: auto;
+    border-radius: 6px;
+}
+
+caption {
+    caption-side:top; 
+    text-align:center; 
+    font-size: xx-large
+}
+
+#label {
+    margin-left: 200px;
+    margin-bottom: 10px;
+}
+
+#input {
+    margin-bottom: 20px;
+    margin-left: 200px;
+    width: 50%
+}
+
+/* For add forms */
+.container {
+    border-radius: 5px;
+    background-color: #d8d7d8;
+    padding: 20px;
+}
+
+#trans-label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+    margin-left: 25px;
+}
+
+#trans-button {
+    width: 50%;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#trans-input {
+    width: 90%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#trans-select {
+    width: 90%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: 20px;
+}
+
+.col-25 {
+    width: 100%;
+    margin-top: 0;
+}
+
+.col-75 {
+    width: 100%;
+    margin-top: 0;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* For transacton button */
+
+.add-trans-button {
+    margin-top: 20px;
+    margin-left: 15px;
+    margin-bottom: 20px;
+}
+
+/* For monthly progress page */
+
+.bill {
+    margin-left: 100px;
+}
+
+.progress {
+    width: 80%;
+    margin-left: 100px;
+    
+}
+
+.m-container {
+    border-radius: 5px;
+    background-color: lightgrey;
+    padding: 20px;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+h4 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.total {
+    text-align: center;
+    margin-top: 30px;
+    font-size: larger;
+}
+
+.container-2 {
+    border-radius: 5px;
+    background-color: lightgrey;
+    padding: 20px;
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+

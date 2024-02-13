@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Income History
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped table-hover table-bordered" id="table">
+        <caption style="caption-side:top; text-align:center">Income History</caption>
+        <tr class="table-primary">
+            <td><b>Date</b></td>
+            <td><b>Amount</b></td>
+            <td><b>Actions</b></td>
+        </tr>
+        {% for item in data %}
+        <tr>
+            <td>{{ item.date }}</td>
+            <td>{{ "$%.2f"|format(item.amount) }}</td>
+            <td>
+                <form action="{{ url_for('delete_income', id=item.id) }}">
+                    <button type="sumbit" class="btn btn-outline-primary btn-sm">Delete</button>
+                    <i class="fa-solid fa-trash-can"></i>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <form action="{{ url_for('income') }}" class="add-trans-button">
+        <button type="submit" class="btn btn-primary">Add an Income</button>
+    </form>
+{% endblock %}

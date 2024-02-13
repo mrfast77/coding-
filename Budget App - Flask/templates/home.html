@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    
+    <table class="table table-striped table-hover table-bordered" id="table">
+        <caption>Monthly Budget</caption>
+        <tr class="table-primary">
+            <td><b>Fixed Bills</b></td>
+            <td><b>Amount</b></td>
+            <td><b>Actions</b></td>
+        </tr>
+        {% for item in data %}
+        <tr>
+            <td>{{ item.bill }}</td>
+            <td>{{ "$%.2f"|format(item.amount) }}</td>
+            <td>
+                <form action="{{ url_for('delete', id=item.id) }}">
+                    <button type="sumbit" class="btn btn-outline-primary btn-sm">Delete</button>
+                    <i class="fa-solid fa-trash-can"></i>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    {% for item in sum %}
+    <p style="text-align: center; font-size: 110%;"><b>Total Expenses: {{ "$%.2f"|format(item.sum) }}</b></p>
+    {% endfor %}
+    <div class="home_buttons">
+        <span class="left_button">
+            <form action="{{ url_for('add') }}" class="home_buttons">
+                <button type="submit" class="btn btn-primary">Add to Budget</button>
+            </form>
+        </span>
+        <span>
+            <form action="{{ url_for('add_transaction') }}" class="home_buttons">
+                <button type="submit" class="btn btn-primary">Add a Transaction</button>
+            </form>
+        </span>
+        <span class="right_button">
+            <form action="{{ url_for('income') }}" class="home_buttons">
+                    <button type="submit" class="btn btn-primary">Add Income</button>
+            </form>
+        </span>
+    </div>
+  
+   
+ 
+
+{% endblock %}
